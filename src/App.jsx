@@ -1,6 +1,7 @@
 import "./App.css";
-import Card from "./Card";
-import User from "./User";
+import Card from "./components/Card";
+import User from "./components/User";
+import ProductsContainer from './components/ProductsContainer'
 import { useState, useEffect } from "react";
 function App() {
   const [sneakers, setSneakers] = useState([]);
@@ -36,16 +37,19 @@ function App() {
           <h2 className="text-2xl m-4 text-cyan-800 mb-6" >Bienvenido</h2>
           <a  onClick={logout} className="text-xl px-2 py-1 rounded-lg text-white bg-cyan-600 cursor-pointer">Cerrar sesion</a>
           <div className=" mt-4 flex flex-wrap items-stretch    ">
+          <ProductsContainer key={ProductsContainer.id}>
+
             {sneakers.map((sneaker) => (
               <div className="w-2/6">
                 <Card
                   key={sneaker.id}
                   name={sneaker.name}
-                  age={sneaker.description}
-                  email={sneaker.price}
-                ></Card>
+                  price={sneaker.price}
+                  description={sneaker.description}
+                  ></Card>
               </div>
             ))}
+            </ProductsContainer>
           </div>
         </>
       ) : (
