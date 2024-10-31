@@ -7,6 +7,7 @@ function App() {
   const [sneakers, setSneakers] = useState([]);
   useEffect(() => {
     const getSneakers = async () => {
+      
       const endPoint = "http://127.0.0.1:3000/api/sneakers";
       const resp = await fetch(endPoint);
       const sneakers = await resp.json();
@@ -19,9 +20,9 @@ function App() {
 
   let [logueado, setLogueado] =useState(false);
   const title = (
-    <h1 className="font-medium text-3xl mt-10">React Aplicaciones Híbridas</h1>
+    <h1 className="font-medium text-3xl mt-10">Tienda de zapatillas</h1>
   );
-  let clase = 2;
+  // const text = 'Tarea 8';
   const login= () =>{
     setLogueado(true)
   }
@@ -31,10 +32,11 @@ function App() {
   return (
     <div>
       {title}
-
+  {/* <p>{text}</p> */}
       {logueado ? (
         <>
           <h2 className="text-2xl m-4 text-cyan-800 mb-6" >Bienvenido</h2>
+          <img src="/sneakerhouse.jpg" alt="Imagen de react" className='w-2/5 mx-auto mb-4' />
           <a  onClick={logout} className="text-xl px-2 py-1 rounded-lg text-white bg-cyan-600 cursor-pointer">Cerrar sesion</a>
           <div className=" mt-4 flex flex-wrap items-stretch    ">
           <ProductsContainer key={ProductsContainer.id}>
