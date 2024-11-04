@@ -4,14 +4,18 @@ import ProductsContainer from '../components/ProductsContainer'
 import { useState, useEffect } from "react";
 
 const Home = () => {
+    let [logueado, setLogueado] = useState(false);
+    let [recarga, setRecarga] = useState(false);
+    const [sneakers, setSneakers] = useState([]);
     const login = () => {
         setLogueado(true)
     }
     const logout = () => {
         setLogueado(false)
     }
-    let [logueado, setLogueado] = useState(false);
-    const [sneakers, setSneakers] = useState([]);
+    const refresh = () => {
+        setRecarga(!recarga)
+    }
     useEffect(() => {
         const getSneakers = async () => {
 
@@ -23,7 +27,7 @@ const Home = () => {
         };
 
         getSneakers();
-    }, []);
+    }, [recarga]);
     return (
         <>
             <h2>Home</h2>
@@ -33,6 +37,7 @@ const Home = () => {
                         <h2 className="text-2xl m-4 text-cyan-800 mb-6" >Bienvenido</h2>
                         <img src="/sneakerhouse.jpg" alt="Imagen de react" className='w-2/5 mx-auto mb-4' />
                         <a onClick={logout} className="text-xl px-2 py-1 rounded-lg text-white bg-cyan-600 cursor-pointer">Cerrar sesion</a>
+                        <a onClick={refresh} className="text-xl px-2 py-1 rounded-lg text-white bg-cyan-600 cursor-pointer">Recargo</a>
                         <div className=" mt-4 flex flex-wrap items-stretch    ">
                             <ProductsContainer key={ProductsContainer.id}>
 
