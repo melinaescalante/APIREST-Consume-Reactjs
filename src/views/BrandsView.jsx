@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import Card from "../components/Card";
+import CardInformative from "../components/CardInformative";
+import Button from "../components/Button";
 const BrandsView = () => {
     const [brands, setBrands] = useState([]);
 
@@ -20,16 +21,16 @@ const BrandsView = () => {
             <h2 className="text-3xl text-center font-medium mt-6">
                 Marcas disponbles
             </h2>
+            <Button text="Agregar marca"></Button>
             <div className="grid grid-cols-3">
                 {brands.map((brand) => (
                     <div className="">
-                        <Card
+                        <CardInformative
                             key={brand._id}
-                            id={brand._id}
                             name={brand.name}
-                            price={brand.price}
+                            country={brand.country}
                             description={brand.description}
-                        ></Card>
+                        ></CardInformative>
                     </div>
                 ))}
             </div>

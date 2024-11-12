@@ -1,5 +1,5 @@
 import Card from "../components/Card";
-import ProductsContainer from "../components/ProductsContainer";
+import Button from "../components/Button";
 import { useState, useEffect } from "react";
 const SneakersView = () => {
     const [sneakers, setSneakers] = useState([]);
@@ -18,6 +18,7 @@ const SneakersView = () => {
     return (
         <>
             <h2 className="font-medium text-xl">Zapatillas disponibles</h2>
+            <Button text="Agregar zapatilla"></Button>
             <div className="grid grid-cols-3">
 
                 {sneakers.map((sneaker) => (
