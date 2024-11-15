@@ -10,6 +10,7 @@ import SingUpView from "./views/SingUpView";
 import Footer from "./components/Footer";
 import SneakersView from "./views/SneakersView";
 import BrandsView from "./views/BrandsView";
+import AddNewSneakerView from "./views/AddNewSneakerView";
 function App() {
 
 
@@ -37,6 +38,7 @@ function App() {
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/zapatillas" element={<SneakersView></SneakersView>}></Route>
+        <Route path="/crearZapatillas" element={<AddNewSneakerView></AddNewSneakerView>}></Route>
         <Route path="/marcas" element={<BrandsView></BrandsView>}></Route>
         <Route path="/details/:id" element={<Details></Details>}></Route>
         <Route path="/api" element={<ApiRestView></ApiRestView>}></Route>

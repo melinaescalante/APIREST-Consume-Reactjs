@@ -1,6 +1,8 @@
 import Card from "../components/Card";
 import Button from "../components/Button";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import AddNewSneakerView from "./AddNewSneakerView";
 const SneakersView = () => {
     const [sneakers, setSneakers] = useState([]);
 
@@ -17,8 +19,8 @@ const SneakersView = () => {
     }, []);
     return (
         <>
-            <h2 className="font-medium text-xl">Zapatillas disponibles</h2>
-            <Button text="Agregar zapatilla"></Button>
+            <h2 className="font-medium text-xl mb-5 mt5">Zapatillas disponibles</h2>
+            <Link className="m-2 px-2 py-1 border rounded-lg border-cyan-800" to={`/crearZapatilla`} >Agregar zapatilla</Link>
             <div className="grid grid-cols-3">
 
                 {sneakers.map((sneaker) => (
