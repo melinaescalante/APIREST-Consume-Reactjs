@@ -11,6 +11,9 @@ import Footer from "./components/Footer";
 import SneakersView from "./views/SneakersView";
 import BrandsView from "./views/BrandsView";
 import AddNewSneakerView from "./views/AddNewSneakerView";
+import AddNewBrandView from "./views/AddNewBrandView";
+import UpdateBrandView from "./views/UpdateBrandView";
+import UpdateSneakerView from "./views/UpdateSneakerView";
 function App() {
 
 
@@ -30,6 +33,7 @@ function App() {
           <li><NavLink to='/singup'>Registro</NavLink></li>
       
           <li><NavLink to='/zapatillas'>Zapatillas</NavLink></li>
+     
           <li><NavLink to='/marcas'>Marcas</NavLink></li>
 
         </ul>
@@ -39,6 +43,9 @@ function App() {
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/zapatillas" element={<SneakersView></SneakersView>}></Route>
         <Route path="/crearZapatillas" element={<AddNewSneakerView></AddNewSneakerView>}></Route>
+        <Route path="/modificarZapatilla/:id" element={<UpdateSneakerView></UpdateSneakerView>}></Route>
+        <Route path="/crearMarca" element={<AddNewBrandView></AddNewBrandView>}></Route>
+        <Route path="/modificarMarca/:id" element={<UpdateBrandView></UpdateBrandView>}></Route>
         <Route path="/marcas" element={<BrandsView></BrandsView>}></Route>
         <Route path="/details/:id" element={<Details></Details>}></Route>
         <Route path="/api" element={<ApiRestView></ApiRestView>}></Route>
