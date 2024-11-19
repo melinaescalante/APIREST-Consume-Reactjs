@@ -31,8 +31,8 @@ function App() {
       {title}
       <nav>
         <ul className="flex gap-6 p-4 text-cyan-600 font-medium mb-4 mt-8">
-          <li><NavLink to='/'>Home</NavLink></li>
-          <li><NavLink to='/api'>API</NavLink></li>
+          {/* <li><NavLink to='/'>Home</NavLink></li> */}
+          <li><NavLink to='/'>API</NavLink></li>
           <li><NavLink to='/login'>Login</NavLink></li>
           <li><NavLink to='/singup'>Registro</NavLink></li>
       
@@ -44,7 +44,7 @@ function App() {
         </ul>
       </nav>
       <Routes>
-        <Route path="/" element={<Home></Home>}></Route>
+        {/* <Route path="/" element={<Home></Home>}></Route> */}
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/zapatillas" element={<SneakersView></SneakersView>}></Route>
         <Route path="/crearZapatillas" element={<AddNewSneakerView></AddNewSneakerView>}></Route>
@@ -57,7 +57,7 @@ function App() {
         <Route path="/modificarUsuario/:id" element={<UpdateUserView></UpdateUserView>}></Route>
         <Route path="/detailsUsuario/:id" element={<DetailsUserView></DetailsUserView>}></Route>
         <Route path="/details/:id" element={<Details></Details>}></Route>
-        <Route path="/api" element={<ApiRestView></ApiRestView>}></Route>
+        <Route path="/" element={<ApiRestView></ApiRestView>}></Route>
         <Route path="/singup" element={<SingUpView></SingUpView>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>

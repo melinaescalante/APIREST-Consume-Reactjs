@@ -55,7 +55,7 @@ const AddNewBrandView = () => {
                 </div>
                 <div className="m-3 flex flex-col">
                     <label htmlFor="description">Descripción</label>
-                    <input className="border rounded-md  border-slate-300" type="text" name="description" onChange={handlerChange} id="description" value={formData.description}  required />
+                    <textarea className="border rounded-md resize-none border-slate-300" type="text" name="description" onChange={handlerChange} id="description" value={formData.description}  required ></textarea>
                 </div>
                 <div className="m-3 flex flex-col">
 

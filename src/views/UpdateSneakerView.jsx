@@ -68,7 +68,7 @@ function UpdateSneakerView() {
                 </div>
                 <div className="m-3 flex flex-col">
                     <label htmlFor="color">Color</label>
-                    <input className="border rounded-md border-slate-300" type="text" onChange={handlerChange} name="color" id="color" value={formData.color} required />
+                    <textarea className="border rounded-md border-slate-300 resize-none" type="text" onChange={handlerChange} name="color" id="color" value={formData.color} required ></textarea>
                 </div>
                 <div className="m-3 flex flex-col">
                     <label htmlFor="brand">Id de marca</label>
