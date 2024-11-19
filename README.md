@@ -15,3 +15,9 @@ npm i
 npm run dev
 ```
 
+- Melina Escalante
+- Materia: Apliciones Híbridas
+- Docente: Jonathan Cruz
+- Comisión: DWM4AP
+
+
