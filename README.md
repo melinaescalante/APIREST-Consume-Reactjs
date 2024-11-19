@@ -8,7 +8,7 @@ Busca recrear una tienda de zapatillas virtual, en la cuál cada uno puedo modif
 1. Clonar repo
 2. Instalar dependencias
 ```bash
-npm run dev
+npm i
 ```
 3. Levantar servidor
 ```bash
