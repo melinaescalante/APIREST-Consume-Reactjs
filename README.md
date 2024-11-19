@@ -1,5 +1,5 @@
 # Parcial con REACT
-# #CRUD Zapatilas
+## CRUD Zapatilas
 Este parcial esta realizado con **React** y conectado a una api local hecha en el entorno de **node.js** y **express**.
 Utilizando las librerías de **jwt** , **bcrypt**, **cors**, **dotenv**, **nodemon**, y **mongoose**
 Busca recrear una tienda de zapatillas virtual, en la cuál cada uno puedo modificar el stock, marcas y usuarios.
