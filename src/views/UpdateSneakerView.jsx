@@ -17,6 +17,8 @@ function UpdateSneakerView() {
     }
     const { id } = useParams()
     const [msg, setMsg] = useState('');
+    const [msgError, setMsgError] = useState('');
+
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
@@ -77,6 +79,11 @@ function UpdateSneakerView() {
             {msg && (
                 <div className="bg-green-200 rounded-lg p-3 mt-3">
                     <p>{msg}</p>
+                </div>
+            )}
+            {msgError && (
+                <div className="bg-red-200 rounded-lg p-3 mt-3">
+                    <p>{msgError}</p>
                 </div>
             )}
         </>

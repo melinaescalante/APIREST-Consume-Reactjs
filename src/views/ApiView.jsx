@@ -110,9 +110,9 @@ const ApiRestView = () => {
     const paragraphWelcome=`Bienvenido a nuestra API REST, un recurso completo para acceder a información detallada sobre zapatillas y sus respectivas marcas. Esta API ha sido desarrollada para facilitar la consulta de datos estructurados sobre distintos modelos de zapatillas, incluyendo características clave como nombre, marca, y descripción específica de cada producto. Ideal para desarrolladores, comerciantes y entusiastas, nuestra API te permite integrar esta información en tus aplicaciones, sitios web o análisis de mercado. Con endpoints sencillos y eficientes, podrás realizar búsquedas rápidas y obtener respuestas claras que se adapten a las necesidades de tu proyecto.`
     return (
         <>
-            <header class="p-4 bg-primary bg-gradient text-white d-flex justify-content-center align-items-center">
+            <header className="p-4 bg-primary bg-gradient text-white d-flex justify-content-center align-items-center">
                 <h1>API de Zapatillas</h1>
-                <img src="/images/api.png" alt="Icon" height="60px" width="60px" class="ms-3" />
+                <img src="/images/api.png" alt="Icon" height="60px" width="60px" className="ms-3" />
             </header>
             <WelcomeText title='¿Qué brindamos?' description={paragraphWelcome}></WelcomeText>
             <h2 className="text-2xl font-medium text-start">EndPoints</h2>

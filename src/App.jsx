@@ -15,6 +15,9 @@ import AddNewBrandView from "./views/AddNewBrandView";
 import UpdateBrandView from "./views/UpdateBrandView";
 import UpdateSneakerView from "./views/UpdateSneakerView";
 import UsersView from "./views/UsersView";
+import UpdateUserView from "./views/UpdateUserView";
+import DetailsUserView from "./views/DetailsUserView";
+import DetailsBrandView from "./views/DetailsBrandView";
 function App() {
 
 
@@ -48,8 +51,11 @@ function App() {
         <Route path="/modificarZapatilla/:id" element={<UpdateSneakerView></UpdateSneakerView>}></Route>
         <Route path="/crearMarca" element={<AddNewBrandView></AddNewBrandView>}></Route>
         <Route path="/modificarMarca/:id" element={<UpdateBrandView></UpdateBrandView>}></Route>
+        <Route path="/detailsMarca/:id" element={<DetailsBrandView></DetailsBrandView>}></Route>
         <Route path="/marcas" element={<BrandsView></BrandsView>}></Route>
         <Route path="/usuarios" element={<UsersView></UsersView>}></Route>
+        <Route path="/modificarUsuario/:id" element={<UpdateUserView></UpdateUserView>}></Route>
+        <Route path="/detailsUsuario/:id" element={<DetailsUserView></DetailsUserView>}></Route>
         <Route path="/details/:id" element={<Details></Details>}></Route>
         <Route path="/api" element={<ApiRestView></ApiRestView>}></Route>
         <Route path="/singup" element={<SingUpView></SingUpView>}></Route>
