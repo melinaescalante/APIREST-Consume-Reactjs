@@ -6,10 +6,12 @@ Busca recrear una tienda de zapatillas virtual, en la cuál cada uno puedo modif
 
 ### Pasos para levantar proyecto
 1. Clonar repo
-2.Instalar dependencias
+2. Instalar dependencias
 ```bash
 npm run dev
-3.Levantar servidor
+```
+3. Levantar servidor
 ```bash
 npm run dev
+```
 
