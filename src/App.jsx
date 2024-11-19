@@ -14,6 +14,7 @@ import AddNewSneakerView from "./views/AddNewSneakerView";
 import AddNewBrandView from "./views/AddNewBrandView";
 import UpdateBrandView from "./views/UpdateBrandView";
 import UpdateSneakerView from "./views/UpdateSneakerView";
+import UsersView from "./views/UsersView";
 function App() {
 
 
@@ -35,6 +36,7 @@ function App() {
           <li><NavLink to='/zapatillas'>Zapatillas</NavLink></li>
      
           <li><NavLink to='/marcas'>Marcas</NavLink></li>
+          <li><NavLink to='/usuarios'>Usuarios</NavLink></li>
 
         </ul>
       </nav>
@@ -47,6 +49,7 @@ function App() {
         <Route path="/crearMarca" element={<AddNewBrandView></AddNewBrandView>}></Route>
         <Route path="/modificarMarca/:id" element={<UpdateBrandView></UpdateBrandView>}></Route>
         <Route path="/marcas" element={<BrandsView></BrandsView>}></Route>
+        <Route path="/usuarios" element={<UsersView></UsersView>}></Route>
         <Route path="/details/:id" element={<Details></Details>}></Route>
         <Route path="/api" element={<ApiRestView></ApiRestView>}></Route>
         <Route path="/singup" element={<SingUpView></SingUpView>}></Route>

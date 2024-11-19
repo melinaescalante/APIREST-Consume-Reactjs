@@ -1,6 +1,6 @@
 import { useState } from "react"
 const SingUpView = () => {
-    const [formData, setFormData] = useState({ full_name: null, password: null, email: null })
+    const [formData, setFormData] = useState({ full_name: '', password: '', email: '' })
     const handlerChange = (e) => {
         const { name, value } = e.target
         setFormData({ ...formData, [name]: value })

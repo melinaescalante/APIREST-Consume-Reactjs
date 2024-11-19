@@ -138,7 +138,7 @@ const ApiRestView = () => {
                         <span className={`py-1 px-2 ms-2 me-2 rounded-lg text-xs text-white font-medium  ${route.color}`} >{route.name}</span>
                         {route.route}
                         </div>
-                        <a  href="http://127.0.0.1:3000/api/users" className="px-3 py-1 bg-cyan-700 text-white rounded-lg">Ir</a>
+                        <a  href={route.route} className="px-3 py-1 bg-cyan-700 text-white rounded-lg">Ir</a>
                     </li>
                 ))}
             </RouteContainer>
@@ -151,7 +151,7 @@ const ApiRestView = () => {
                         <span className={`py-1 px-2 ms-2 me-2 rounded-lg text-xs text-white font-medium  ${route.color}`} >{route.name}</span>
                         {route.route}
                         </div>
-                        <a href="#" className="px-3 py-1 bg-cyan-700 text-white rounded-lg">Ir</a>
+                        <a href={route.route} className="px-3 py-1 bg-cyan-700 text-white rounded-lg">Ir</a>
                     </li>
                 ))}
             </RouteContainer>
