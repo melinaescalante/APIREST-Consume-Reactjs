@@ -39,6 +39,7 @@ function CardInformative({ name, description, country,id,onDelete}) {
       <h4 className="font-medium text-xl  m-3">{name}</h4>
       <p className="text-start"><strong>Descripción:</strong> {description}</p>
       <p className="text-start"><strong>País de origen:</strong> {country}</p>
+      <p className="text-start"><strong>Id:</strong> {id}</p>
       <div className="flex flex-wrap justify-center m-3 pt-2 pb-2 gap-2">
 
       <button onClick={handleDelete} className="p-2  text-red-700 border rounded-lg border-red-700 ">Eliminar</button>

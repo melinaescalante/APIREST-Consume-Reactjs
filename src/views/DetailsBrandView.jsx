@@ -28,6 +28,7 @@ console.log(brand.data.name)
                             <p><strong>Nombre de compañia: </strong>{brand.name} </p>
                             <p><strong>Descripción de compañia: </strong>{brand.description} </p>
                             <p><strong>País de origen: </strong> {brand.country}</p>
+                            <p><strong>Id: </strong> {id}</p>
                           
                         </div>
                     </>
