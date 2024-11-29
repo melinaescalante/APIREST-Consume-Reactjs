@@ -2,13 +2,14 @@ import Card from "../components/Card";
 import Button from "../components/Button";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import AddNewSneakerView from "./AddNewSneakerView";
+import { AuthContext } from "../utils/AuthContext";
+import { useContext } from "react";
 const SneakersView = () => {
     const [sneakers, setSneakers] = useState([]);
     const [msgError, setMsgError] = useState('');
-    const [isSearching, setIsSearching] = useState(false); 
+    const [isSearching, setIsSearching] = useState(false);
     const [formUserData, setFormUserData] = useState({ name: '' })
-
+    const { user } = useContext(AuthContext)
     useEffect(() => {
         const getSneakers = async () => {
             const endPoint = "http://127.0.0.1:3000/api/sneakers";
@@ -27,7 +28,7 @@ const SneakersView = () => {
         const resp = await fetch(endPoint);
         const sneaker = await resp.json();
         setFormUserData(sneaker);
-console.log(sneaker)
+        console.log(sneaker)
         if (resp.ok) {
             setSneakers([sneaker.data.product])
         } else {
@@ -35,7 +36,7 @@ console.log(sneaker)
             setTimeout(() => {
                 setMsgError('')
             }, 3000);
-            setIsSearching(false); 
+            setIsSearching(false);
         }
     }
     const handlerChange = (e) => {
@@ -43,7 +44,7 @@ console.log(sneaker)
         setFormUserData({ ...formUserData, [name]: value || '' })
     }
     const handleDelete = (id) => {
-    
+
         setSneakers(sneakers.filter(sneaker => sneaker._id !== id));
     };
     return (
@@ -70,44 +71,44 @@ console.log(sneaker)
                     </button>
                 </div>
             </form>
-            
+
             {msgError && (
                 <div className="bg-red-200 rounded-lg p-3 mt-3">
                     <p>{msgError}</p>
                 </div>
             )}
             <div className="grid grid-cols-3">
-            {isSearching ? (
-                sneakers.map((sneaker) => (
-                    <div key={sneaker._id} className="">
-                        <Card
-                            key={sneaker._id}
-                            id={sneaker._id}
-                            name={sneaker.name}
-                            price={sneaker.price}
-                            description={sneaker.description}
-                            color={sneaker.color}
-                            brand={sneaker.brand}
-                            onDelete={handleDelete} 
-                        ></Card>
-                    </div>
-                ))
+                {isSearching ? (
+                    sneakers.map((sneaker) => (
+                        <div key={sneaker._id} className="">
+                            <Card
+                                key={sneaker._id}
+                                id={sneaker._id}
+                                name={sneaker.name}
+                                price={sneaker.price}
+                                description={sneaker.description}
+                                color={sneaker.color}
+                                brand={sneaker.brand}
+                                onDelete={handleDelete}
+                            ></Card>
+                        </div>
+                    ))
                 ) : (
-                sneakers.map((sneaker) => (
-                    <div key={sneaker._id} className="">
-                        <Card
-                            key={sneaker._id}
-                            id={sneaker._id}
-                            name={sneaker.name}
-                            price={sneaker.price}
-                            description={sneaker.description}
-                            color={sneaker.color}
-                            brand={sneaker.brand}
-                            onDelete={handleDelete} 
-                        ></Card>
-                    </div>
-                ))
-            )}
+                    sneakers.map((sneaker) => (
+                        <div key={sneaker._id} className="">
+                            <Card
+                                key={sneaker._id}
+                                id={sneaker._id}
+                                name={sneaker.name}
+                                price={sneaker.price}
+                                description={sneaker.description}
+                                color={sneaker.color}
+                                brand={sneaker.brand}
+                                onDelete={handleDelete}
+                            ></Card>
+                        </div>
+                    ))
+                )}
 
             </div>
         </>

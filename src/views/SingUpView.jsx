@@ -1,10 +1,12 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 const SingUpView = () => {
     const [formData, setFormData] = useState({ full_name: '', password: '', email: '' })
     const handlerChange = (e) => {
         const { name, value } = e.target
         setFormData({ ...formData, [name]: value })
     }
+    const navigate=useNavigate()
 
     const handlerSubmit = async (e) => {
         e.preventDefault()
@@ -25,6 +27,7 @@ const SingUpView = () => {
                 setFormData({
                     full_name: '', password: '', email: ''
                 })
+navigate('/login')
             }
         } catch (error) {
             console.log(error)
