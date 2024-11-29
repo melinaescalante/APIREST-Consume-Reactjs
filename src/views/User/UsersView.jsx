@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import CardUser from "../components/CardUser";
+import CardUser from "../../components/CardUser";
 function UsersView() {
     const [users, setUsers] = useState([])
     const [msgError, setMsgError] = useState('');

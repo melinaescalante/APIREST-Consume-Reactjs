@@ -1,6 +1,6 @@
 import { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../utils/AuthContext";
+import { AuthContext } from "../../utils/AuthContext";
 const Login = () => {
     const [msg, setMsg] = useState('');
     const [msgError, setMsgError] = useState('');
@@ -27,10 +27,10 @@ const Login = () => {
             const response = await fetch(endPoint, config);
             if (response.ok) {
                 const data = await response.json()
-                console.log(data.data.jwt)
+                console.log(data)
                 if (data.data.jwt) {
 
-                    login('ok', data.data.jwt)
+                    login(data.data.email, data.data.jwt)
                     navigate('/')
                 } else {
                     setMsgError('Error al iniciar sesión');

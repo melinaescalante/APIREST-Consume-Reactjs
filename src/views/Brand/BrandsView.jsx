@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import CardInformative from "../components/CardInformative";
+import CardInformative from "../../components/CardInformative";
 import { Link } from "react-router-dom";
 const BrandsView = () => {
     const [brands, setBrands] = useState([]);

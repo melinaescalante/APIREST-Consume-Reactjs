@@ -1,8 +1,8 @@
-import Card from "../components/Card";
-import Button from "../components/Button";
+import Card from "../../components/Card";
+import Button from "../../components/Button";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../utils/AuthContext";
+import { AuthContext } from "../../utils/AuthContext";
 import { useContext } from "react";
 const SneakersView = () => {
     const [sneakers, setSneakers] = useState([]);
