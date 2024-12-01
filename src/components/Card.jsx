@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "./Button";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { AuthContext } from "../utils/AuthContext";
 function Card({ name, description, price, id, color, brand, onDelete }) {
   const [msg, setMsg] = useState('');
-
+  const { user } = useContext(AuthContext)
+  useEffect(() => {
+    console.log("Estado de user cambiado:", user);
+  }, [user]);
   const handleDelete = async () => {
 
     try {
@@ -40,10 +44,14 @@ function Card({ name, description, price, id, color, brand, onDelete }) {
         <p className="text-start"><strong>Precio:</strong> {price}</p>
         <p className="text-start"><strong>Descripcion:</strong> {description}</p>
         <div className="flex flex-wrap justify-center m-3 pt-2 pb-2 gap-2">
-        <Button text="Comprar"></Button>
-        <Link to={`/details/${id}`} className="p-2  text-cyan-700 border rounded-lg border-cyan-700 ">Detalle</Link>
-        <button onClick={handleDelete} className="p-2 text-red-700 border rounded-lg border-red-700 ">Eliminar</button>
-        <Link to={`/modificarZapatilla/${id}`} state={{ name, description, price, id, color, brand}} className="p-2  text-yellow-600 border rounded-lg border-yellow-600 ">Modificar</Link>
+          <Link to={`/details/${id}`} className="p-2  text-cyan-700 border rounded-lg border-cyan-700 ">Detalle</Link>
+          {user && (
+            <>
+              <Button text="Comprar"></Button>
+              <button onClick={handleDelete} className="p-2 text-red-700 border rounded-lg border-red-700 ">Eliminar</button>
+              <Link to={`/modificarZapatilla/${id}`} state={{ name, description, price, id, color, brand }} className="p-2  text-yellow-600 border rounded-lg border-yellow-600 ">Modificar</Link>
+            </>
+          )}
         </div>
       </div>
       {msg && (

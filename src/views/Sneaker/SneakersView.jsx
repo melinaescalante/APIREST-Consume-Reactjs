@@ -2,14 +2,13 @@ import Card from "../../components/Card";
 import Button from "../../components/Button";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../utils/AuthContext";
+import {  AuthProvider } from "../../utils/AuthContext";
 import { useContext } from "react";
 const SneakersView = () => {
     const [sneakers, setSneakers] = useState([]);
     const [msgError, setMsgError] = useState('');
     const [isSearching, setIsSearching] = useState(false);
     const [formUserData, setFormUserData] = useState({ name: '' })
-    const { user } = useContext(AuthContext)
     useEffect(() => {
         const getSneakers = async () => {
             const endPoint = "http://127.0.0.1:3000/api/sneakers";
@@ -48,6 +47,7 @@ const SneakersView = () => {
         setSneakers(sneakers.filter(sneaker => sneaker._id !== id));
     };
     return (
+
         <>
             <h2 className="font-medium text-xl m-5 mt-5">Zapatillas disponibles</h2>
             <Link className="m-2 px-2 mb-5 py-1 border rounded-lg border-cyan-800" to={`/crearZapatillas`} >Agregar zapatilla</Link>
@@ -77,40 +77,42 @@ const SneakersView = () => {
                     <p>{msgError}</p>
                 </div>
             )}
-            <div className="grid grid-cols-3">
-                {isSearching ? (
-                    sneakers.map((sneaker) => (
-                        <div key={sneaker._id} className="">
-                            <Card
-                                key={sneaker._id}
-                                id={sneaker._id}
-                                name={sneaker.name}
-                                price={sneaker.price}
-                                description={sneaker.description}
-                                color={sneaker.color}
-                                brand={sneaker.brand}
-                                onDelete={handleDelete}
-                            ></Card>
-                        </div>
-                    ))
-                ) : (
-                    sneakers.map((sneaker) => (
-                        <div key={sneaker._id} className="">
-                            <Card
-                                key={sneaker._id}
-                                id={sneaker._id}
-                                name={sneaker.name}
-                                price={sneaker.price}
-                                description={sneaker.description}
-                                color={sneaker.color}
-                                brand={sneaker.brand}
-                                onDelete={handleDelete}
-                            ></Card>
-                        </div>
-                    ))
-                )}
+            {/* <AuthProvider> */}
+                <div className="grid grid-cols-3">
+                    {isSearching ? (
+                        sneakers.map((sneaker) => (
+                            <div key={sneaker._id} className="">
+                                <Card
+                                    key={sneaker._id}
+                                    id={sneaker._id}
+                                    name={sneaker.name}
+                                    price={sneaker.price}
+                                    description={sneaker.description}
+                                    color={sneaker.color}
+                                    brand={sneaker.brand}
+                                    onDelete={handleDelete}
+                                ></Card>
+                            </div>
+                        ))
+                    ) : (
+                        sneakers.map((sneaker) => (
+                            <div key={sneaker._id} className="">
+                                <Card
+                                    key={sneaker._id}
+                                    id={sneaker._id}
+                                    name={sneaker.name}
+                                    price={sneaker.price}
+                                    description={sneaker.description}
+                                    color={sneaker.color}
+                                    brand={sneaker.brand}
+                                    onDelete={handleDelete}
+                                ></Card>
+                            </div>
+                        ))
+                    )}
 
-            </div>
+                </div>
+            {/* </AuthProvider> */}
         </>
     );
 };

@@ -18,46 +18,21 @@ import UpdateUserView from "./views/User/UpdateUserView";
 import DetailsUserView from "./views/User/DetailsUserView";
 import DetailsBrandView from "./views/Brand/DetailsBrandView";
 import { PrivateRoute } from "./utils/PrivateRouteComponent";
-import { AuthProvider } from "./utils/AuthContext";
-import { AuthContext } from "./utils/AuthContext";
-import { useContext, useEffect, useState } from "react";
+import {  AuthProvider } from "./utils/AuthContext";
+import NavBar from "./components/NavBar";
+
 function App() {
+
+
   const title = (
     <h1 className="font-medium text-3xl mt-5">Tienda de zapatillas</h1>
   );
-  
-  const { user, logout, loadedUser } = useContext(AuthContext);
-  useEffect(() => {
-      console.log("User actualizado:", user);
-      console.log("LoadedUser:", loadedUser);
-  }, []);
   return (
-    <>
-      <div className="p-6">
-        {title}
-        <nav>
-          <ul className="flex gap-6 items-center p-4 text-cyan-600 font-medium mb-4 mt-8">
-            {/* <li><NavLink to='/'>Home</NavLink></li> */}
-            <li><NavLink to='/'>API</NavLink></li>
-            <li><NavLink to='/zapatillas'>Zapatillas</NavLink></li>
-            <li><NavLink to='/marcas'>Marcas</NavLink></li>
-            <li><NavLink to='/usuarios'>Usuarios</NavLink></li>
-            <li><NavLink to='/singup'>Registro</NavLink></li>
-            {loadedUser?(
-                            <li>
-                                <button onClick={logout}>
-                                    Cerrar sesión <span>({user})</span>
-                                </button>
-                            </li>
-                        ) : (
-                            <li>
-                                <NavLink to="/login">Login</NavLink>
-                            </li>
-                        )
-                    }
-          </ul>
-        </nav>
-        <AuthProvider>
+    <AuthProvider>
+      <>
+        <div className="p-6">
+          {title}
+          <NavBar></NavBar>
           <Routes>
             {/* <Route path="/" element={<Home></Home>}></Route> */}
             <Route path="/login" element={<Login></Login>}></Route>
@@ -102,10 +77,10 @@ function App() {
             <Route path="/singup" element={<SingUpView></SingUpView>}></Route>
             <Route path="*" element={<NotFound></NotFound>}></Route>
           </Routes>
-        </AuthProvider>
-      </div>
-      <Footer></Footer>
-    </>
+        </div>
+        <Footer></Footer>
+      </>
+    </AuthProvider>
   );
 }
 

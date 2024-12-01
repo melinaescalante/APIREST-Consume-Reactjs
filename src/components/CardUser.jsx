@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "./Button";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../utils/AuthContext";
 import { useState, useEffect } from "react";
 function CardUser({ full_name, email, id, onDelete }) {
     const [msg, setMsg] = useState('');
+    const { user } = useContext(AuthContext)
 
     const handleDelete = async () => {
 
@@ -41,9 +43,15 @@ function CardUser({ full_name, email, id, onDelete }) {
 
                 <p className="text-start mb-4"><strong>Email:</strong> {email}</p>
                 <div className="flex flex-wrap justify-center m-3 pt-2 pb-2 gap-2 items-center">
-                    <button onClick={handleDelete} className="p-2  text-red-700 border rounded-lg border-red-700 ">Eliminar</button>
                     <Link to={`/detailsUsuario/${id}`} className="p-2 text-cyan-600 border rounded-lg border-cyan-600 ">Detalle</Link>
-                    <Link to={`/modificarUsuario/${id}`} state={{ full_name, email }} className="p-2  text-yellow-600 border rounded-lg border-yellow-600 ">Modificar</Link>
+                    {user && (
+                        <>
+
+                            <button onClick={handleDelete} className="p-2  text-red-700 border rounded-lg border-red-700 ">Eliminar</button>
+                            <Link to={`/modificarUsuario/${id}`} state={{ full_name, email }} className="p-2  text-yellow-600 border rounded-lg border-yellow-600 ">Modificar</Link>
+                        </>
+
+                    )}
                 </div>
             </div>
             {msg && (

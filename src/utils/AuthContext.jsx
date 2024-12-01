@@ -5,45 +5,39 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [token, setToken] = useState(null);
-    const [loadedUser, setLoadedUser] = useState(null);
+
+    // Recuperar datos almacenados al cargar la app
     useEffect(() => {
         const storedUser = localStorage.getItem("user");
         const storedToken = localStorage.getItem("token");
-        console.log(storedUser)
-        if (storedUser) setUser(storedUser);
-        if (storedToken) setToken(storedToken);
-if (storedToken && storedUser) {
-    
-    setLoadedUser(true);
-}
-    }, []);
+        if (storedUser) {
+            setUser(storedUser); // Si es un string (ej. email), úsalo directamente
+        }
+        if (storedToken) {
+            setToken(storedToken); // Si existe, almacénalo también
+        }
+    }, []); // Se ejecuta una vez al montar el componente
 
     const login = (userData, userToken) => {
+        console.log(userData, userToken)
         setUser(userData);
         setToken(userToken);
-        setLoadedUser(true);
-        console.log(user)
-        console.log(loadedUser); 
+        console.log(user, token + 'Soy el set user y token y mis valores')
         localStorage.setItem("user", userData);
         localStorage.setItem("token", userToken);
-
-        
     };
 
     const logout = () => {
         setUser(null);
         setToken(null);
-        setLoadedUser(false);
-        console.log(user)
-        console.log(loadedUser); 
-
         localStorage.removeItem("user");
         localStorage.removeItem("token");
     };
 
     return (
-        <AuthContext.Provider value={{ user, token, login, logout, loadedUser }}>
+        <AuthContext.Provider value={{ user, token, login, logout }}>
             {children}
         </AuthContext.Provider>
     );
 };
+
