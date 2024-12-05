@@ -57,7 +57,7 @@ function UpdateBrandView() {
                     <label htmlFor="name">Nombre</label>
                     <input className="border rounded-md  border-slate-300" type="text" name="name" id="name" onChange={handlerChange} value={formData.name} />
                 </div>
-                <div className="m-3 flex flex-col">
+                <div className="flex flex-col">
 
                     <label htmlFor="description">Descripción</label>
                     <textarea className="border resize-none rez rounded-md border-slate-300" type="text" name="description" onChange={handlerChange} id="description" value={formData.description} ></textarea>
