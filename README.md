@@ -1,8 +1,8 @@
-# Parcial con REACT
-## CRUD Zapatilas
-Este parcial esta realizado con **React** y conectado a una api local hecha en el entorno de **node.js** y **express**.
-Utilizando las librerías de **jwt** , **bcrypt**, **cors**, **dotenv**, **nodemon**, y **mongoose**
-Busca recrear una tienda de zapatillas virtual, en la cuál cada uno puedo modificar el stock, marcas y usuarios.
+# API REST Sneakers
+## CRUD Zapatillas
+Esta parte del parcial está realizado en el entorno de trabajo **node.js** y **express**.
+Esta consumida por su front hecho en **React**
+
 
 ### Pasos para levantar proyecto
 1. Clonar repo
@@ -10,14 +10,14 @@ Busca recrear una tienda de zapatillas virtual, en la cuál cada uno puedo modif
 ```bash
 npm i
 ```
-3. Levantar servidor
-```bash
-npm run dev
-```
+3. Agregar archivo .env y dichas claves
 
+4. Levantar servidor con el comando
+```bash
+npm start
+```
 - Melina Escalante
 - Materia: Apliciones Híbridas
 - Docente: Jonathan Cruz
 - Comisión: DWM4AP
-
 
