@@ -17,7 +17,7 @@ npm i
 ```bash
 npm start
 ```
-5. Connect with Frontend
+5. Connect with Backend
 - To see the whole project you have to be running both. [Here's](https://github.com/melinaescalante/API-CRUD-Mongo-Nodejs-Expressjs) the guide.
 ### Interface images 
 #### Home ![image](https://github.com/user-attachments/assets/35471af2-4fa6-41c6-93c3-688632702c3b)
